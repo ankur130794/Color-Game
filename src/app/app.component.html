@@ -1,20 +1,115 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
-  </li>
-</ul>
+<button class="btn btn-primary"  id="start"> click on quadrant II to start</button>
+<div class="container" >
+   <div class="row">
+       <div class="col-lg-4">
+         <button  class="button btn btn-default" (click)="QuadrantClick(1,'but1')"  id ="but1"></button>
+       </div>
+       <div class="col-lg-4">
+           <button  class="button btn btn-default" (click)="QuadrantClick(2,'but2')"  id="but2"></button>
+       </div>
+   </div>
+  <div class="row">
+       <div class="col-lg-4">
+           <button  class="button btn btn-default" (click)="QuadrantClick(3,'but3')"  id="but3"></button>
+       </div>
+       <div class="col-lg-4">
+           <button  class="button btn btn-default" (click)="QuadrantClick(4,'but4')"  id="but4"></button>
+       </div>
+ </div>
+ </div>
+  <h2 id="score">Score: {{score}}</h2>
+  <div> <button type="button" id="submit" class="btn btn-primary" 
+    (click)="modal.show()">Save</button>
+  </div>
+  <app-modal #modal>
+        <div class="app-modal-header">
+             
+        </div>
 
+        <div class="app-modal-body"> 
+             
+                      <div class="tabbable">
+                          <ul class="nav nav-tabs">
+                              <li class="active"><a href="#tab1" data-toggle="tab">Login</a></li>
+                              
+                          </ul>
+                          <div class="tab-content">
+                              <div class="tab-pane active" id="tab1">
+                                    <form id=myModal data-toggle="validator" role="form" #f="ngForm">
+                                            
+                                            
+                                              <div class="form-group">
+                                                 <label for="inputName" class="control-label">Name*</label>
+                                                 <input #nameBox type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" required>
+                                                 <label for="inputGit" class="control-label">Git Url*</label>
+                                                 <input #gitBox type="text" class="form-control" id="inputName" name="inputGit" placeholder="Your Git Url" required>
+                                                <label for="inputNumber" class="control-label">ID*</label>
+                                                 <input #idBox type="number"  max="999999999" class="form-control" id="inputNumber" placeholder="Id" data-error="ID is invalid" required>
+                                                 <div class="help-block with-errors"></div>
+                                            
+                                              </div>
+                                            
+                                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                            
+                                            
+                                              <!-- ############## Email ##################### -->
+                                            
+                                              <div class="form-group">
+                                                 <label for="inputEmail" class="control-label">Email*</label>
+                                                 <input #emailBox type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email" data-error="Email address is invalid" required>
+                                                 <div class="help-block with-errors"></div>
+                                               </div>
+                                            
+                                            
+                                              <!-- ############## City ##################### -->
+                                                 <div class="dropdown">
+                                                <label class="control-label">Choose City  </label>
+                                                 <select #city type="A" class="btn btn-default btn-block dropdown-toggle">
+                                            
+                                                   <option>Mumbai</option>
+                                                   <option>Chennai</option>
+                                                   <option>Kolkata</option>
+                                                   <option>Bangaluru</option>
+                                                   <option>Guwahati</option>
+                                                 </select>
+                                               </div>
+                                            
+                                              <!-- ############## Score ##################### -->
+                                            
+                                              <div class="form-group">
+                                                 <label for="inputNumber" class="control-label">Score*</label>
+                                                 <input disabled  value="{{score}}" type="number" class="form-control" id="inputNumber" data-error="Score is invalid" required>
+                                                 <div class="help-block with-errors"></div>
+                                               </div>
+                                            
+                                               <div class="form-group">
+                                                 <button type="submit" class="btn btn-primary" (click)="(onSubmit(nameBox.value,emailBox.value,idBox.value,city.value,gitBox.value))">Submit</button>
+                                               </div>
+                                             </form>
+                                 </div>                          
+                              </div>
+                          </div>
+                         
+                  
+        </div>       
+              
+        <div class="app-modal-footer">
+          <button type="button" class="btn btn-default" 
+          (click)="modal.hide()">Close</button>
+          
+          
+        </div>
+      </app-modal>       
+
+      <!-- modal -->
+
+   
+     
+      
+
+
+  
+
+
+
+  
